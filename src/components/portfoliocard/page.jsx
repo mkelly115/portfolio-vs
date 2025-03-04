@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -5,28 +7,61 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import { projects } from '@/library/utils';
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
-export default function PortfolioCard() {
-  return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="\Screenshot 2025-02-04 130834.png"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  );
+export default function PortfolioCard({ project }) {
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+    return (
+        <Card sx={{ maxWidth: 400 }}>
+            <CardMedia
+                sx={{ height: 200 }}
+                image= {project.image}
+                title="Project Image"
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {project.title}
+                </Typography>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {project.description}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small" href={project.href} target="_blank">
+                    Github
+                </Button>
+                <Button size="small" href={project.liveLink} target="_blank">
+                    Live Website
+                </Button>
+                {/* <IconButton
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <ExpandMoreIcon />
+                </IconButton> */}
+            </CardActions>
+
+            {/* Dropdown Section */}
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Technologies Used</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Typography variant="body2">
+                     {project.technologies.join(', ')}
+                    </Typography>
+                </AccordionDetails>
+            </Accordion>
+        </Card>
+    );
 }
