@@ -1,11 +1,13 @@
 "use client"
+import Link from "next/link"
+import "../footer/styles.css"
 
 export default function Footer() {
     return(
-        <div>
-            <h1>LinkedIn</h1>
-            <h1>Github</h1>
-            <h1>StackOverFlow</h1>
-        </div>
+        <nav className="footer">
+            <Link href="https://github.com/mkelly115" className="links"> Github </Link>
+            <Link href="https://www.linkedin.com/in/michael-andrew-kelly/" className="links"> Linked In </Link>
+            <Link href="https://stackoverflow.com/users/23515148/michael-kelly" className="links">Stack Overflow</Link>
+        </nav>
     )
 }

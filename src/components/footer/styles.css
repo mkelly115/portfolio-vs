@@ -1,9 +1,9 @@
-.header{
-    top: 0;
+.footer{
+    bottom: 0;
     width: 100%;
+    position: fixed;
     display: flex;
     justify-content: center;
-    padding: 10px;
 }
 
 .links{

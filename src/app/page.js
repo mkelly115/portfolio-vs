@@ -1,6 +1,11 @@
+import PortfolioCard from "@/components/portfoliocard/page";
 
 export default function Home() {
   return (
-    <h1>Michael Andrew Kelly Portfolio</h1>
+    <div>
+          <h1>Michael Andrew Kelly Portfolio</h1>
+          <PortfolioCard />
+    </div>
+
   );
 }
