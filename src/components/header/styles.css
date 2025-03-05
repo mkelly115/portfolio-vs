@@ -1,11 +1,33 @@
-.header{
+.header {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    align-items: center;
+    padding: 10px 20px; /* Adds some padding for spacing */
+    background-color: silver;
 }
 
-.links{
-    padding: 35px;
+.name-card {
+    flex: 1; /* Takes up available space on the left */
+    font-size: 1.5rem; /* Makes the text bigger */
+    font-weight: bold;
+    color:dimgray
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px; /* Adds spacing between links */
+}
+
+.nav-links a {
+    padding: 10px 15px;
+    background-color: white; 
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: lightgray;
 }

@@ -34,6 +34,9 @@ export default function PortfolioCard({ project }) {
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                     {project.description}
                 </Typography>
+                {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                   <h3>Technologies Used:</h3> {project.technologies}
+                </Typography> */}
             </CardContent>
             <CardActions>
                 <Button size="small" href={project.href} target="_blank">
