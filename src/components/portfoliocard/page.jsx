@@ -21,50 +21,49 @@ export default function PortfolioCard({ project }) {
     };
 
     return (
-        <Card sx={{ maxWidth: 400 }}>
-            <CardMedia
-                sx={{ height: 200 }}
-                image= {project.image}
-                title="Project Image"
-            />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {project.title}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {project.description}
-                </Typography>
-                {/* <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                   <h3>Technologies Used:</h3> {project.technologies}
-                </Typography> */}
-            </CardContent>
-            <CardActions>
-                <Button size="small" href={project.href} target="_blank">
-                    Github
-                </Button>
-                <Button size="small" href={project.liveLink} target="_blank">
-                    Live Website
-                </Button>
-                {/* <IconButton
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </IconButton> */}
-            </CardActions>
+<Card
+    sx={{
+        maxWidth: 400,
+        height: 450, // Fixed height for consistency
+        display: "flex",
+        flexDirection: "column",
+    }}
+>
+    <CardMedia
+        sx={{ height: 200 }}
+        image={project.image}
+        title="Project Image"
+    />
+    <CardContent sx={{ flexGrow: 1, overflow: "hidden" }}>
+        <Typography gutterBottom variant="h5" component="div">
+            {project.title}
+        </Typography>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            {project.description}
+        </Typography>
+    </CardContent>
+    <CardActions>
+        <Button size="small" href={project.href} target="_blank">
+            Github
+        </Button>
+        <Button size="small" href={project.liveLink} target="_blank">
+            Live Website
+        </Button>
+    </CardActions>
 
-            {/* Dropdown Section */}
-            <Accordion>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography>Technologies Used</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography variant="body2">
-                     {project.technologies.join(', ')}
-                    </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </Card>
+    {/* Accordion Section - Prevents Card from Expanding */}
+    <div style={{ flexShrink: 0, overflow: "auto" }}>
+        <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography>Technologies Used</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography variant="body2">
+                    {project.technologies.join(", ")}
+                </Typography>
+            </AccordionDetails>
+        </Accordion>
+    </div>
+</Card>
     );
 }
