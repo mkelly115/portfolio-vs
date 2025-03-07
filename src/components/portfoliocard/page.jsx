@@ -24,7 +24,7 @@ export default function PortfolioCard({ project }) {
 <Card
     sx={{
         maxWidth: 400,
-        height: 450, // Fixed height for consistency
+        height: 450, 
         display: "flex",
         flexDirection: "column",
     }}
